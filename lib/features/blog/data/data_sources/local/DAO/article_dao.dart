@@ -10,6 +10,6 @@ abstract class ArticleDao {
   @delete
   Future<void> deleteArticle(BlogModel articleModel);
 
-  @Query('SELECT * FROM article')
+  @Query('SELECT * FROM blog')
   Future<List<BlogModel>> getArticles();
 }

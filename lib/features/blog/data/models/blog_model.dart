@@ -12,6 +12,7 @@ class BlogModel extends BlogEntity {
     required super.urlToImage,
     required super.publishedAt,
     required super.content,
+    required super.isPinned,
   });
   factory BlogModel.fromEntity(BlogEntity entity) {
     return BlogModel(
@@ -23,6 +24,7 @@ class BlogModel extends BlogEntity {
       publishedAt: entity.publishedAt,
       content: entity.content,
       author: entity.author,
+      isPinned: entity.isPinned,
     );
   }
   factory BlogModel.fromJson(Map<String, dynamic> json) {
@@ -35,6 +37,7 @@ class BlogModel extends BlogEntity {
       urlToImage: json['urlToImage'],
       publishedAt: json['publishedAt'],
       content: json['content'],
+      isPinned: json['isPinned'],
     );
   }
   BlogEntity toEntity() {
@@ -47,6 +50,31 @@ class BlogModel extends BlogEntity {
       urlToImage: urlToImage,
       publishedAt: publishedAt,
       content: content,
+      isPinned: isPinned,
+    );
+  }
+
+  BlogModel copyWith({
+    int? id,
+    String? title,
+    String? author,
+    String? description,
+    String? url,
+    String? urlToImage,
+    String? publishedAt,
+    String? content,
+    bool? isPinned,
+  }) {
+    return BlogModel(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      author: author ?? this.author,
+      description: description ?? this.description,
+      url: url ?? this.url,
+      urlToImage: urlToImage ?? this.urlToImage,
+      publishedAt: publishedAt ?? this.publishedAt,
+      content: content ?? this.content,
+      isPinned: isPinned ?? this.isPinned,
     );
   }
 }

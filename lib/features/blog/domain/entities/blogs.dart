@@ -9,6 +9,7 @@ class BlogEntity extends Equatable {
   final String? urlToImage;
   final String? publishedAt;
   final String? content;
+  final bool isPinned;
 
   const BlogEntity({
     required this.id,
@@ -19,8 +20,9 @@ class BlogEntity extends Equatable {
     required this.urlToImage,
     required this.publishedAt,
     required this.content,
+    this.isPinned = false,
   });
 
   @override
-  List<Object?> get props => [id, title, author, description, url, urlToImage, publishedAt, content];
+  List<Object?> get props => [id, title, author, description, url, urlToImage, publishedAt, content, isPinned];
 }

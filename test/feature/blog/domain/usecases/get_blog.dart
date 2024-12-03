@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_bloc_blog/features/blog/domain/entities/blogs.dart';
+import 'package:flutter_bloc_blog/features/blog/data/models/blog_model.dart';
 import 'package:flutter_bloc_blog/features/blog/domain/usecases/get_blog.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -15,7 +15,7 @@ void main() {
   });
 
   test('get Blog List', () async {
-    const blogEntity = BlogEntity(
+    const blogEntity = BlogModel(
       id: 1,
       title: 'title',
       author: 'author',
@@ -24,6 +24,7 @@ void main() {
       urlToImage: 'urlToImage',
       publishedAt: 'publishedAt',
       content: 'content',
+      isPinned: false,
     );
     when(blogRepository.getBlogs()).thenAnswer((_) async => const Right([blogEntity]));
     final result = await getBlog.execute();

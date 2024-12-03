@@ -42,7 +42,7 @@ class BlogRepositoryImpl implements BlogRepository {
   }
 
   @override
-  Future<Either<Failure, List<BlogEntity>>> getBlogs() async {
+  Future<Either<Failure, List<BlogModel>>> getBlogs() async {
     try {
       final response = await _blogApiService.getNewsArticles(
         apiKey: newsAPIKey,
@@ -50,9 +50,9 @@ class BlogRepositoryImpl implements BlogRepository {
         category: categoryQuery,
       );
 
-      final List<BlogEntity> blogList = [];
+      final List<BlogModel> blogList = [];
       for (final blog in response.data['articles']) {
-        blogList.add(BlogModel.fromJson(blog as Map<String, dynamic>).toEntity());
+        blogList.add(BlogModel.fromJson(blog as Map<String, dynamic>));
       }
       return Right(blogList);
     } catch (e) {

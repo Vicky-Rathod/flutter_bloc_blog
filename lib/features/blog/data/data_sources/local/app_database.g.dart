@@ -96,7 +96,7 @@ class _$AppDatabase extends AppDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `blog` (`id` INTEGER NOT NULL, `author` TEXT NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `url` TEXT NOT NULL, `urlToImage` TEXT NOT NULL, `publishedAt` TEXT NOT NULL, `content` TEXT NOT NULL, PRIMARY KEY (`id`))');
+            'CREATE TABLE IF NOT EXISTS `blog` (`id` INTEGER, `author` TEXT, `title` TEXT, `description` TEXT, `url` TEXT, `urlToImage` TEXT, `publishedAt` TEXT, `content` TEXT, `isPinned` INTEGER NOT NULL, PRIMARY KEY (`id`))');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -126,7 +126,8 @@ class _$ArticleDao extends ArticleDao {
                   'url': item.url,
                   'urlToImage': item.urlToImage,
                   'publishedAt': item.publishedAt,
-                  'content': item.content
+                  'content': item.content,
+                  'isPinned': item.isPinned ? 1 : 0
                 }),
         _blogModelDeletionAdapter = DeletionAdapter(
             database,
@@ -140,7 +141,8 @@ class _$ArticleDao extends ArticleDao {
                   'url': item.url,
                   'urlToImage': item.urlToImage,
                   'publishedAt': item.publishedAt,
-                  'content': item.content
+                  'content': item.content,
+                  'isPinned': item.isPinned ? 1 : 0
                 });
 
   final sqflite.DatabaseExecutor database;
@@ -155,16 +157,17 @@ class _$ArticleDao extends ArticleDao {
 
   @override
   Future<List<BlogModel>> getArticles() async {
-    return _queryAdapter.queryList('SELECT * FROM article',
+    return _queryAdapter.queryList('SELECT * FROM blog',
         mapper: (Map<String, Object?> row) => BlogModel(
-            id: row['id'] as int,
-            title: row['title'] as String,
-            author: row['author'] as String,
-            description: row['description'] as String,
-            url: row['url'] as String,
-            urlToImage: row['urlToImage'] as String,
-            publishedAt: row['publishedAt'] as String,
-            content: row['content'] as String));
+            id: row['id'] as int?,
+            title: row['title'] as String?,
+            author: row['author'] as String?,
+            description: row['description'] as String?,
+            url: row['url'] as String?,
+            urlToImage: row['urlToImage'] as String?,
+            publishedAt: row['publishedAt'] as String?,
+            content: row['content'] as String?,
+            isPinned: (row['isPinned'] as int) != 0));
   }
 
   @override

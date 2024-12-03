@@ -13,7 +13,7 @@ import 'package:flutter_bloc_blog/features/auth/domain/entities/auth_entity.dart
     as _i7;
 import 'package:flutter_bloc_blog/features/auth/domain/repositories/auth_repository.dart'
     as _i4;
-import 'package:flutter_bloc_blog/features/blog/domain/entities/blogs.dart'
+import 'package:flutter_bloc_blog/features/blog/data/models/blog_model.dart'
     as _i9;
 import 'package:flutter_bloc_blog/features/blog/domain/repositories/blog_repository.dart'
     as _i8;
@@ -325,22 +325,22 @@ class MockBlogRepository extends _i1.Mock implements _i8.BlogRepository {
       ) as _i5.Future<_i2.Either<_i6.Failure, dynamic>>);
 
   @override
-  _i5.Future<_i2.Either<_i6.Failure, List<_i9.BlogEntity>>> getBlogs() =>
+  _i5.Future<_i2.Either<_i6.Failure, List<_i9.BlogModel>>> getBlogs() =>
       (super.noSuchMethod(
         Invocation.method(
           #getBlogs,
           [],
         ),
         returnValue:
-            _i5.Future<_i2.Either<_i6.Failure, List<_i9.BlogEntity>>>.value(
-                _FakeEither_0<_i6.Failure, List<_i9.BlogEntity>>(
+            _i5.Future<_i2.Either<_i6.Failure, List<_i9.BlogModel>>>.value(
+                _FakeEither_0<_i6.Failure, List<_i9.BlogModel>>(
           this,
           Invocation.method(
             #getBlogs,
             [],
           ),
         )),
-      ) as _i5.Future<_i2.Either<_i6.Failure, List<_i9.BlogEntity>>>);
+      ) as _i5.Future<_i2.Either<_i6.Failure, List<_i9.BlogModel>>>);
 
   @override
   _i5.Future<_i2.Either<_i6.Failure, dynamic>> getBlogDetail(String? blogId) =>

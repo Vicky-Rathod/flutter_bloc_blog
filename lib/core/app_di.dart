@@ -1,4 +1,6 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_bloc_blog/core/network_info.dart';
 import 'package:flutter_bloc_blog/features/auth/data/datasources/auth_remote_datasources.dart';
 import 'package:flutter_bloc_blog/features/auth/data/datasources/local_remote_datasources.dart';
 import 'package:flutter_bloc_blog/features/auth/data/repositories_impl/auth_repositories_impl.dart';
@@ -26,6 +28,10 @@ void init() {
 }
 
 Future<void> coreConfig() async {
+  locater.registerLazySingleton<Connectivity>(() => Connectivity());
+
+  // Register NetworkInfo
+  locater.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(locater()));
   final database = await $FloorAppDatabase.databaseBuilder('app_database.db').build();
   locater.registerSingleton<AppDatabase>(database);
   locater.registerSingleton<Dio>(createDioWithInterceptor());
