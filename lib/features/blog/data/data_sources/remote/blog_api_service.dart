@@ -1,9 +1,6 @@
 import 'dart:developer';
 
-import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc_blog/core/const/constants.dart';
-import 'package:flutter_bloc_blog/core/failure.dart';
-import 'package:flutter_bloc_blog/features/blog/data/models/blog_model.dart';
 import 'package:retrofit/retrofit.dart';
 
 import 'package:dio/dio.dart';

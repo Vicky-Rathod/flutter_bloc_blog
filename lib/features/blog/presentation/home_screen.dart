@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_blog/core/widgets/custom_textfield.dart';
-import 'package:flutter_bloc_blog/core/widgets/widgets.dart';
 import 'package:flutter_bloc_blog/features/blog/presentation/bloc/nav_cubit.dart';
 import 'package:flutter_bloc_blog/features/blog/presentation/home_view.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';

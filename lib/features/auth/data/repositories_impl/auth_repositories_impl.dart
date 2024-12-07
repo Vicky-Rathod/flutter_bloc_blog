@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter_bloc_blog/core/app_di.dart';
 import 'package:flutter_bloc_blog/core/failure.dart';
+import 'package:flutter_bloc_blog/core/network_info.dart';
 import 'package:flutter_bloc_blog/features/auth/data/datasources/auth_remote_datasources.dart';
 import 'package:flutter_bloc_blog/features/auth/data/datasources/local_remote_datasources.dart';
 import 'package:flutter_bloc_blog/features/auth/domain/entities/auth_entity.dart';
@@ -13,7 +15,13 @@ class AuthRepositoriesImpl implements AuthRepository {
 
   @override
   Future<Either<Failure, dynamic>> signInWithEmailAndPassword({String? email, String? password}) async {
-    return await authRemoteDataSource.signInWithEmailAndPassword(email: email!, password: password!);
+    final networkInfo = locater<NetworkInfo>();
+    final isConnected = await networkInfo.isConnected;
+    if (isConnected) {
+      authLocalDataSource.signInWithEmailAndPassword(email: email!, password: password!);
+      return await authRemoteDataSource.signInWithEmailAndPassword(email: email, password: password);
+    }
+    return const Left(Failure(message: 'No Internet Connection'));
   }
 
   @override

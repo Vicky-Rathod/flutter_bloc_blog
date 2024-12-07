@@ -4,8 +4,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i5;
-import 'dart:convert' as _i10;
-import 'dart:typed_data' as _i12;
+import 'dart:convert' as _i12;
+import 'dart:typed_data' as _i14;
 
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:flutter_bloc_blog/core/failure.dart' as _i6;
@@ -13,13 +13,17 @@ import 'package:flutter_bloc_blog/features/auth/domain/entities/auth_entity.dart
     as _i7;
 import 'package:flutter_bloc_blog/features/auth/domain/repositories/auth_repository.dart'
     as _i4;
+import 'package:flutter_bloc_blog/features/auther_profile/domain/entities/auther_entity.dart'
+    as _i11;
+import 'package:flutter_bloc_blog/features/auther_profile/domain/repositories/auther_profile_repository.dart'
+    as _i10;
 import 'package:flutter_bloc_blog/features/blog/data/models/blog_model.dart'
     as _i9;
 import 'package:flutter_bloc_blog/features/blog/domain/repositories/blog_repository.dart'
     as _i8;
 import 'package:http/http.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i11;
+import 'package:mockito/src/dummies.dart' as _i13;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -360,6 +364,34 @@ class MockBlogRepository extends _i1.Mock implements _i8.BlogRepository {
       ) as _i5.Future<_i2.Either<_i6.Failure, dynamic>>);
 }
 
+/// A class which mocks [AutherProfileRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAutherProfileRepository extends _i1.Mock
+    implements _i10.AutherProfileRepository {
+  MockAutherProfileRepository() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i5.Future<_i2.Either<_i6.Failure, List<_i11.AutherEntity>>>
+      getAutherProfile() => (super.noSuchMethod(
+            Invocation.method(
+              #getAutherProfile,
+              [],
+            ),
+            returnValue: _i5
+                .Future<_i2.Either<_i6.Failure, List<_i11.AutherEntity>>>.value(
+                _FakeEither_0<_i6.Failure, List<_i11.AutherEntity>>(
+              this,
+              Invocation.method(
+                #getAutherProfile,
+                [],
+              ),
+            )),
+          ) as _i5.Future<_i2.Either<_i6.Failure, List<_i11.AutherEntity>>>);
+}
+
 /// A class which mocks [Client].
 ///
 /// See the documentation for Mockito's code generation for more information.
@@ -415,7 +447,7 @@ class MockHttpClient extends _i1.Mock implements _i3.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i10.Encoding? encoding,
+    _i12.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -446,7 +478,7 @@ class MockHttpClient extends _i1.Mock implements _i3.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i10.Encoding? encoding,
+    _i12.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -477,7 +509,7 @@ class MockHttpClient extends _i1.Mock implements _i3.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i10.Encoding? encoding,
+    _i12.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -508,7 +540,7 @@ class MockHttpClient extends _i1.Mock implements _i3.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i10.Encoding? encoding,
+    _i12.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -545,7 +577,7 @@ class MockHttpClient extends _i1.Mock implements _i3.Client {
           [url],
           {#headers: headers},
         ),
-        returnValue: _i5.Future<String>.value(_i11.dummyValue<String>(
+        returnValue: _i5.Future<String>.value(_i13.dummyValue<String>(
           this,
           Invocation.method(
             #read,
@@ -556,7 +588,7 @@ class MockHttpClient extends _i1.Mock implements _i3.Client {
       ) as _i5.Future<String>);
 
   @override
-  _i5.Future<_i12.Uint8List> readBytes(
+  _i5.Future<_i14.Uint8List> readBytes(
     Uri? url, {
     Map<String, String>? headers,
   }) =>
@@ -566,8 +598,8 @@ class MockHttpClient extends _i1.Mock implements _i3.Client {
           [url],
           {#headers: headers},
         ),
-        returnValue: _i5.Future<_i12.Uint8List>.value(_i12.Uint8List(0)),
-      ) as _i5.Future<_i12.Uint8List>);
+        returnValue: _i5.Future<_i14.Uint8List>.value(_i14.Uint8List(0)),
+      ) as _i5.Future<_i14.Uint8List>);
 
   @override
   _i5.Future<_i3.StreamedResponse> send(_i3.BaseRequest? request) =>

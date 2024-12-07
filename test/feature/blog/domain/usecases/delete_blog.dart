@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_bloc_blog/features/blog/domain/entities/blogs.dart';
 import 'package:flutter_bloc_blog/features/blog/domain/usecases/delete_blog.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';

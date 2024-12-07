@@ -6,7 +6,6 @@ import 'package:flutter_bloc_blog/features/auth/presentation/ui/login_screen.dar
 import 'package:flutter_bloc_blog/features/blog/presentation/bloc/blog_bloc.dart';
 import 'package:flutter_bloc_blog/features/blog/presentation/bloc/nav_cubit.dart';
 
-/// The Widget that configures your application.
 class MyApp extends StatelessWidget {
   const MyApp({
     super.key,
@@ -28,6 +27,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
           title: 'My App',
+          showPerformanceOverlay: true,
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),

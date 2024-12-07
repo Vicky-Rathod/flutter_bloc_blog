@@ -4,7 +4,6 @@ import 'package:flutter_bloc_blog/core/failure.dart';
 import 'package:flutter_bloc_blog/features/blog/data/data_sources/local/app_database.dart';
 import 'package:flutter_bloc_blog/features/blog/data/data_sources/remote/blog_api_service.dart';
 import 'package:flutter_bloc_blog/features/blog/data/models/blog_model.dart';
-import 'package:flutter_bloc_blog/features/blog/domain/entities/blogs.dart';
 import 'package:flutter_bloc_blog/features/blog/domain/repositories/blog_repository.dart';
 
 class BlogRepositoryImpl implements BlogRepository {
