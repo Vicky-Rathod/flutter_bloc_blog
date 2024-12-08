@@ -1,0 +1,47 @@
+{
+    "en": {
+      "welcome": "Welcome!",
+      "sign_in_to_continue": "Sign in to Continue",
+      "email": "Email",
+      "password": "Password",
+      "sign_in": "Sign In",
+      "home": "Home",
+      "category": "Category",
+      "cart": "Cart",
+      "other": "Other",
+      "hey": "Hey",
+      "whats_on_your_mind": "What's on your mind?",
+      "pinned_notes": "PINNED NOTES",
+      "recent_notes": "RECENT NOTES"
+    },
+    "de": {
+      "welcome": "Willkommen!",
+      "sign_in_to_continue": "Melden Sie sich an, um fortzufahren",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "sign_in": "Anmelden",
+      "home": "Zuhause",
+      "category": "Kategorie",
+      "cart": "Wagen",
+      "other": "Andere",
+      "hey": "Hallo",
+      "whats_on_your_mind": "Was hast du auf dem Herzen?",
+      "pinned_notes": "ANGEHEFTETE NOTIZEN",
+      "recent_notes": "KÜRZLICHE NOTIZEN"
+    },
+    "hi": {
+      "welcome": "स्वागत है!",
+      "sign_in_to_continue": "जारी रखने के लिए साइन इन करें",
+      "email": "ईमेल",
+      "password": "पासवर्ड",
+      "sign_in": "साइन इन करें",
+      "home": "मुख्य पृष्ठ",
+      "category": "श्रेणी",
+      "cart": "कार्ट",
+      "other": "अन्य",
+      "hey": "नमस्ते",
+      "whats_on_your_mind": "आपके मन में क्या है?",
+      "pinned_notes": "पिन की गई नोट्स",
+      "recent_notes": "हाल की नोट्स"
+    }
+  }

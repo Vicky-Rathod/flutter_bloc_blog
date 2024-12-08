@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_blog/core/widgets/widgets.dart';
 import 'package:flutter_bloc_blog/features/blog/presentation/bloc/blog_bloc.dart';
 import 'package:flutter_bloc_blog/features/blog/presentation/bloc/blog_bloc_event.dart';
+import 'package:flutter_bloc_blog/localization/app_localizations.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -31,28 +32,28 @@ class _HomeViewState extends State<HomeView> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text('Hey Vicky,', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(AppLocalizations.of(context).translate('hey'), style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           ),
           const SizedBox(height: 10),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text('What\'s on your mind ?', style: TextStyle(fontSize: 22, color: Colors.grey)),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(AppLocalizations.of(context).translate('whats_on_your_mind'), style: const TextStyle(fontSize: 22, color: Colors.grey)),
           ),
           const SizedBox(height: 60),
           buildSearchRow(containerWidth, containerHeight),
           const SizedBox(height: 30),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text('PINNED NOTES', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w900)),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(AppLocalizations.of(context).translate('pinned_notes'), style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900)),
           ),
           const SizedBox(height: 20),
           buildPinnedNotesList(screenWidth, screenHeight),
           const SizedBox(height: 30),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text('RECENT NOTES', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w900)),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(AppLocalizations.of(context).translate('recent_notes'), style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900)),
           ),
           const SizedBox(height: 20),
           buildRecentNotesList(screenWidth, screenHeight)

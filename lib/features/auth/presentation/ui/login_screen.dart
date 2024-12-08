@@ -4,6 +4,7 @@ import 'package:flutter_bloc_blog/core/widgets/custom_button.dart';
 import 'package:flutter_bloc_blog/core/widgets/custom_textfield.dart';
 import 'package:flutter_bloc_blog/features/auth/presentation/bloc/auth/bloc/auth_bloc.dart';
 import 'package:flutter_bloc_blog/features/blog/presentation/home_screen.dart';
+import 'package:flutter_bloc_blog/localization/app_localizations.dart';
 
 class DiagonalClipper extends CustomClipper<Path> {
   @override
@@ -85,25 +86,23 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 30),
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              FlutterLogo(
-                                size: 50,
-                              ),
-                              SizedBox(height: 10),
+                              const FlutterLogo(size: 50),
+                              const SizedBox(height: 10),
                               Text(
-                                "Welcome!,",
-                                style: TextStyle(color: Colors.black, fontSize: 26, fontWeight: FontWeight.bold),
+                                AppLocalizations.of(context).translate('welcome'),
+                                style: const TextStyle(color: Colors.black, fontSize: 26, fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                'Sign in to Continue',
-                                style: TextStyle(color: Color(0xff4c4b53), fontSize: 26, fontWeight: FontWeight.bold),
+                                AppLocalizations.of(context).translate('sign_in_to_continue'),
+                                style: const TextStyle(color: Color(0xff4c4b53), fontSize: 26, fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),
@@ -116,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: CustomTextField(
-                        hintText: 'Email',
+                        hintText: AppLocalizations.of(context).translate('email'),
                         fieldType: FieldType.email,
                         controller: emailController,
                         height: containerHeight,
@@ -133,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: CustomTextField(
-                        hintText: 'Password',
+                        hintText: AppLocalizations.of(context).translate('password'),
                         fieldType: FieldType.password,
                         controller: passwordController,
                         height: containerHeight,
@@ -151,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                         SizedBox(
                           width: 300,
                           child: CustomButton(
-                            text: 'Sign In',
+                            text: AppLocalizations.of(context).translate('sign_in'),
                             disabled: emailController.text.isEmpty || passwordController.text.isEmpty,
                             onPressed: () {
                               context.read<AuthBloc>().add(LoginRequested(email: emailController.text, password: passwordController.text));

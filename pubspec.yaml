@@ -20,6 +20,8 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.6
   flutter_hooks: ^0.20.5
+  flutter_localizations:
+    sdk: flutter
   flutter_snake_navigationbar: ^0.6.1
   get_it: ^8.0.2
   mockito: ^5.4.4
@@ -41,4 +43,5 @@ flutter:
 
   assets:
     # Add assets from the images directory to the application.
+    - assets/localization.json
     - assets/images/
