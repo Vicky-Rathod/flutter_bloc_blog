@@ -22,6 +22,11 @@ class _HomeViewState extends State<HomeView> {
   }
 
   void _switchLanguage(String languageCode) {
+    if (context.read<LocaleCubit>().state.languageCode == 'en') {
+      languageCode = 'hi';
+    } else {
+      languageCode = 'en';
+    }
     context.read<LocaleCubit>().switchLocale(languageCode);
   }
 
