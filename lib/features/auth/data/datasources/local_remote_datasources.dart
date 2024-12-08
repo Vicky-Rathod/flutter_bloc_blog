@@ -20,7 +20,7 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
 
   @override
   Future<void> signInWithEmailAndPassword({String? email, String? password}) {
-    throw UnimplementedError();
+    return Future.value();
   }
 
   @override

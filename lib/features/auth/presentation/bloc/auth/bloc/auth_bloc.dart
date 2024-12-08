@@ -12,7 +12,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(AuthInitial()) {
     on<LoginRequested>((event, emit) async {
       emit((LoadingState()));
-      print('LoginRequested');
+
       final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
       if (!emailRegex.hasMatch(event.email)) {
         emit(const LoginFailureState(failure: Failure(message: 'Invalid Email')));

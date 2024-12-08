@@ -37,7 +37,7 @@ class BlogModel extends BlogEntity {
       urlToImage: json['urlToImage'],
       publishedAt: json['publishedAt'],
       content: json['content'],
-      isPinned: json['isPinned'],
+      isPinned: json['isPinned'] ?? false,
     );
   }
   BlogEntity toEntity() {

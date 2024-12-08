@@ -5,6 +5,9 @@ import 'package:flutter_bloc_blog/features/auth/presentation/bloc/auth/bloc/auth
 import 'package:flutter_bloc_blog/features/auth/presentation/ui/login_screen.dart';
 import 'package:flutter_bloc_blog/features/blog/presentation/bloc/blog_bloc.dart';
 import 'package:flutter_bloc_blog/features/blog/presentation/bloc/nav_cubit.dart';
+import 'package:flutter_bloc_blog/features/blog/presentation/cubit/locale_cubit.dart';
+import 'package:flutter_bloc_blog/localization/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({
@@ -24,14 +27,30 @@ class MyApp extends StatelessWidget {
         BlocProvider<BlogBloc>(
           create: (context) => BlogBloc(locater()),
         ),
+        BlocProvider(create: (_) => LocaleCubit()),
       ],
-      child: MaterialApp(
-          title: 'My App',
-          showPerformanceOverlay: true,
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: const Scaffold(body: LoginScreen())),
+      child: BlocBuilder<LocaleCubit, Locale>(
+        builder: (context, locale) {
+          return MaterialApp(
+              title: 'My App',
+              locale: locale,
+              localizationsDelegates: const [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: const [
+                Locale('en'),
+                Locale('de'),
+                Locale('hi'),
+              ],
+              theme: ThemeData(
+                primarySwatch: Colors.blue,
+              ),
+              home: const Scaffold(body: LoginScreen()));
+        },
+      ),
     );
   }
 }
